@@ -1,0 +1,42 @@
+  - name: Home
+    head-widgets: 
+      - $include: game-tracker.yml
+    
+    columns: 
+      - size: small
+        widgets: 
+          - type: bookmarks
+            groups: 
+              - links:
+                  - title: N6 to home
+                    url: https://bustimes.org/stops/8240DB006366#departures
+          
+          - type: group
+            widgets:
+              - $include: epic-games.yml
+              - $include: steam.yml
+
+          - $include: spoolman.yml
+        
+      - size: full
+        widgets:
+          - type: docker-containers
+            hide-by-default: false
+
+          - type: server-stats
+            server:
+              - type: local
+                name: Services
+              
+    
+      - size: small
+        widgets:
+          - type: search
+            search-engine: duckduckgo
+            bangs:
+              - title: Youtube
+                shortcut: "!yt"
+                url: https://www.youtube.com/results?search_query={QUERY}
+              
+          - type: calendar
+            first-day-of-week: monday

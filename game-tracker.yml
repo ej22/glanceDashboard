@@ -1,0 +1,7 @@
+- type: rss
+  title: Upcoming Game Releases
+  limit: 5
+  preserve-order: true
+  style: horizontal-cards-2
+  feeds:
+    - url: http://192.168.1.252:8066/api/glance

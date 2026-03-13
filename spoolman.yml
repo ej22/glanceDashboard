@@ -1,0 +1,43 @@
+- type: custom-api
+  title: Filament Spools
+  cache: 10m
+  url: http://192.168.1.252:7912/api/v1/spool?sort=used_weight:desc&allow_archived=false
+  template: |
+    {{ $spools := .JSON.Array "@this" }}
+    {{ if eq (len $spools) 0 }}
+      <div>No spools found.</div>
+    {{ end }}
+
+    <div class="spools">
+      {{ range $s := $spools }}
+        {{ if not ($s.Bool "archived") }}
+          <div class="spool">
+            <span class="swatch" style="background-color:#{{ $s.String "filament.color_hex" }}"></span>
+            <div class="name">{{ $s.String "filament.name" }}</div>
+            <div class="meta">
+              {{ $s.String "filament.vendor.name" }} ·
+              Used {{ $s.Float "used_weight" | printf "%.0f" }}g ·
+              Remaining {{ $s.Float "remaining_weight" | printf "%.0f" }}g
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
+    </div>
+
+    <style>
+      .spools { display: grid; gap: 8px; }
+      .spool {
+        display: grid;
+        grid-template-columns: 14px 1fr;
+        gap: 8px;
+        align-items: center;
+      }
+      .swatch {
+        width: 14px;
+        height: 14px;
+        border-radius: 3px;
+        border: 1px solid rgba(255,255,255,0.2);
+      }
+      .name { font-weight: 600; }
+      .meta { opacity: 0.7; font-size: 0.9em; grid-column: 2; }
+    </style>
