@@ -2,7 +2,7 @@
     columns:
       - size: small
         widgets:
-          - type: todo
+          - type: to-do
             id: 3dprinting-tasks
             title: Print Queue
 
