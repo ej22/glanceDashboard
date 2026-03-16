@@ -1,0 +1,61 @@
+  - name: 3D Printing
+    columns:
+      - size: small
+        widgets:
+          - type: todo
+            id: 3dprinting-tasks
+            title: Print Queue
+
+      - size: full
+        widgets:
+          - type: group
+            widgets:
+              - type: reddit
+                title: r/3Dprinting
+                subreddit: 3Dprinting
+                style: vertical-list
+                show-thumbnails: true
+                limit: 10
+                collapse-after: 5
+                sort-by: hot
+
+              - type: reddit
+                title: r/FixMyPrint
+                subreddit: FixMyPrint
+                style: vertical-list
+                show-thumbnails: false
+                limit: 8
+                collapse-after: 4
+                sort-by: hot
+
+              - type: reddit
+                title: r/resinprinting
+                subreddit: resinprinting
+                style: vertical-list
+                show-thumbnails: true
+                limit: 8
+                collapse-after: 4
+                sort-by: hot
+
+              - type: reddit
+                title: r/functionalprint
+                subreddit: functionalprint
+                style: vertical-list
+                show-thumbnails: true
+                limit: 8
+                collapse-after: 4
+                sort-by: hot
+
+              - type: reddit
+                title: r/3Dprintedminis
+                subreddit: 3Dprintedminis
+                style: vertical-list
+                show-thumbnails: true
+                limit: 8
+                collapse-after: 4
+                sort-by: hot
+
+      - size: small
+        widgets:
+          - type: calendar
+            first-day-of-week: monday
